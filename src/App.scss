@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "./styles/sass/variables.scss";
+
+.App {
+  text-align: center;
+}
+
+.menu-item{
+    height: 10vh !important;
+}
+.side-bar{
+background: white !important;
+width: 500px !important;
+}
+.search-box{
+    height: 5vh;
+}
+.side-menu{
+    background: white !important;
+}
+.side-menu-item{
+    color: black !important;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+.active-menu{
+    color: red !important;
+}
+
+//top nav
+.top-nav{
+    z-index: 100;
+    height: 15vh !important;
+    background: white !important;
+    display: grid;
+}
+.topnav-title{
+color: $main_blue !important;
+text-align: left;
+font-weight: bold;
+font-size: 24px;
+margin-top: 1%;
+margin-left: 10%;
+}
+.menu-bar{
+    display: grid;
+    grid-template-columns: 30% auto 20%;
+}
+.search-bar{
+    width: 80% !important;
+    border-radius: 10px !important;
+    height: 7vh;
+    background: #E8E8E834 0% 0% no-repeat padding-box !important;
+   
+}
+
+.blue-txt{
+  font-family: $poppins;
+    span{
+         color: blue !important;
+         cursor: pointer;
+    }
+}
+.text-center{
+    text-align: center;
+}
+.col-white{
+    color: white;
+}
+.home-txt{
+    letter-spacing: 2.7px;
+    font-family: $poppins;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 10%;
+}
+
+
+
+.dark-mode{
+    background-color: black !important;
+}
+
+.ant-menu-item-selected{
+    background-color: $main_blue !important;
+}
+.ant-layout-sider-trigger{
+    background-color: white !important;
+    color: blue !important;
+    span{
+        font-size: 24px;
+    }
+
+}
+
+.logout-btn{
+    cursor: pointer !important;
+}
+
+.dark-mode-btn{
+    cursor: pointer !important;
+}

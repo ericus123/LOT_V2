@@ -1,0 +1,112 @@
+@import "../../styles//sass//variables.scss";
+
+.homepage{
+    display: grid;
+    grid-template-columns: 55% auto;
+    height: 100vh;
+    width: 100%;
+    .left-side{
+        height: 100vh;
+        width: 100%;
+        background: linear-gradient(to bottom, #1b27afbf,#1b27afbf),url("../../assets//images//home-img.jpg");
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     
+       
+        .logo-wrapper{
+              margin-top: -15%;
+           svg{
+              color: white;
+              transform: scale(0.8);
+           }
+        }
+        .home-text-wrapper{
+            .home-txt{
+                
+            }
+        }
+    }
+ 
+     .right-side{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+         width: 100%;
+        
+        .login-form{
+            width: 80%;
+             margin-left: 7%;
+        .login-header{
+            margin-left: 7%;
+            width: 80%;
+          }
+        h1{
+                color: $main_blue;
+                font-weight: bold;
+                font-family: $poppins;
+            font-size: 22px;
+        }
+        p{
+            letter-spacing: 0.2px;
+            color: #6A6A6A;
+            font-size: 16px;
+            text-align: left;
+        }
+        }
+    }
+}
+.large_blue_btn{
+color: white;
+background: $main_blue !important;
+}
+
+
+.login-input{
+    height: 5vh;
+    border: 1px solid #8692A6 !important;
+    border-radius: 6px !important;
+}
+.or-text{
+    text-align: center;
+    color: #BABABA;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: $poppins;
+}
+
+
+.google-signup{
+    text-align: center;
+    width: auto;
+}
+.google-signup-btn{
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    img{
+        margin-right: 5%;
+    }
+}
+.login-btn{
+    color: white !important;
+    background: #1B27AF 0% 0% no-repeat padding-box !important;
+    font-family: $poppins !important;
+    height: 5vh !important;
+    width: 90%;
+    font-size: 14px !important;
+    padding: 2px !important;
+    border-radius: 8px;
+    font-weight: bold !important;
+}
+.input-label{
+    font-family: $poppins;
+    font-weight: normal;
+    color: #6A6A6A;
+    font-size: 12px;
+}
