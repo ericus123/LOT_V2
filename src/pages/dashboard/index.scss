@@ -1,7 +1,300 @@
+@import "../../styles//sass//variables.scss";
 .home-title{
 text-align: left;
 font: normal normal normal 28px/36px Euclid Circular B !important;
 letter-spacing: 0px;
 color: #080000;
 padding: 3%;
+}
+
+.home-cards{
+    height: 30vh !important;
+    background-color: #1B27AF !important;
+    border-radius: 10px !important;
+    border: none;
+    font-family: $poppins;
+}
+.home-card-title{
+    color: white !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+.home-left-side{
+    float: right;
+    padding: 5%;
+}
+.home-cards-right{
+    height: 10vh !important;
+  background: #FFFFFF 0% 0% no-repeat padding-box !important;
+box-shadow: 0px 2px 2px #3565D329 !important;
+border: 1px solid #0074890D !important;
+border-radius: 8px !important;
+    border: none !important;
+    margin-bottom: 5%;
+}
+.home-card-right-title{
+    color: white !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+.home-left-side{
+    background-color: #FCFDFFA0;
+}
+
+.date-slider-item{
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.date-slider{
+    height: 10vh;
+    margin: 15px;
+}
+.home-card-title{
+    font-size: 14px !important;
+}
+.home-card-number{
+color: $cyan_color !important;
+font-size: 40px !important;
+letter-spacing: 0.7px !important;
+opacity: 0.89;
+}
+.home-card-desc{
+color: white;
+}
+
+.chart-wrapper{
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 6px #98A4CB55;
+border: 1px solid #1B27AF1C;
+border-radius: 8px;
+opacity: 1;
+width: 80%;
+padding-top: 5%;
+margin-bottom: 5%;
+}
+//calendar
+
+.june-main-events{
+    font-size: 24px !important;  
+}
+
+.employment-toogle{
+   background-color: #CCD1FF34 !important; 
+   height: 7vh;
+   border-radius: 8px;
+padding-top: 5%;
+padding-left: 4%;
+width: auto !important;
+}
+
+.add-btn{
+    color: white;
+    height: 5vh;
+    font-weight: bold;
+    background: $main_blue 0% 0% no-repeat padding-box !important;
+    border-radius: 6px !important;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: auto !important;
+}
+.calendar-wrapper{
+width: 80% !important;
+margin-bottom: 2%;
+}
+.action-icon-col{
+    margin-left: auto !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+.edit-icon{
+    fill: $light_gray_color;
+    height: 12px !important;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto !important;
+    cursor: pointer;
+}
+.delete-icon{
+    cursor: pointer;
+    fill: $light_gray_color;
+    height: 12px !important;
+    margin-left: auto !important;
+  
+}
+.rate-text-col{
+     margin-top: auto !important;
+    margin-bottom: auto !important;   
+    text-align: center !important;
+    font-size: small;
+    color: $main_blue;
+    font-weight: bold;
+}
+.rate-col{
+     margin-top: auto !important;
+    margin-bottom: auto !important;
+
+    .rating-stars{
+        font-size: small;
+    text-align: center !important;
+    margin-left: 30% !important;
+    // margin-right: 5% !important;
+    }
+}
+.home-chart-wrapper{
+    width: 60%;
+    height: 60vh;
+    margin: 5%;
+}
+.staff-company-col{
+    .staff-company-icon{
+        height: 6.5vh;
+    }
+}
+.company-name-col{
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: small;
+}
+.dashboard-div{
+overflow-x: hidden;
+overflow-y: auto;
+height: 550px;
+}
+.staff-add-col{
+    margin-left: auto !important;
+    margin-right: 5%;
+    margin-top: 5px;
+}
+
+.employment-active{
+    color: $main_blue;
+    background-color: white;
+    padding: 8px 15px 8px 15px !important;
+    opacity: 1;
+    border-radius: 6px !important;
+cursor: pointer !important;
+margin-right: 5% !important;
+transition: .4s ease-in-out;
+font-weight: bold;
+}
+
+.employers-tab{
+border-radius: 6px !important;
+cursor: pointer !important;
+margin-right: 5% !important;
+transition: .4s ease-in-out;
+font-weight: bold;
+color: $main_blue !important;
+opacity: 0.5;
+}
+.employees-tab{
+    margin-right: 5% !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-weight: bold;
+    opacity: 0.5;
+    color: $main_blue !important;
+}
+
+.staff-card{
+    height: 10vh;
+    width: 700px;
+    background-color: #00132645;
+    box-shadow: 0px 2px 2px #3565D329 !important;
+    background: #FFFFFF 0% 0% no-repeat padding-box !important;
+    border-radius: 8px;
+
+      .staff-row{
+          margin-top: -2%;
+      }
+    }
+.staff-cards-row{
+    margin-top: 1%;
+    align-items: center !important;
+}
+
+.event-title{
+    font-size: 14px;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.event-time{
+    font-size: 14px;
+    text-align: center;
+    margin-left: 10% !important;
+}
+
+.dash-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 2%;
+}
+
+.date-from{
+font-size: 14px;
+margin-left: auto;
+color: $main_blue;
+font-weight: bold;
+}
+.date-to{
+font-size: 14px;
+margin-left: 2%;
+margin-right: 10%;
+color: $main_blue;
+font-weight: bold;
+}
+.report-heading{
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+}
+.report-students{
+    color: $main_blue;
+    font-weight: bold;
+    background: $light_gray_color;
+    padding: 1%;
+    margin-right: 2.5px;
+    font-size: 12px;
+}
+.report-companies{
+    color: $main_blue;
+    font-weight: bold;
+    background: $light_gray_color;
+    padding: 1%;
+    margin-right: 2.5px;
+    font-size: 12px;
+}
+.report-date-joined{
+    color: $main_blue;
+    font-weight: bold;
+    background: $light_gray_color;
+    padding: 1%;
+    margin-right: 2.5px;
+    font-size: 12px;
+}
+.report-service-fee{
+    color: $main_blue;
+    font-weight: bold;
+    background: $light_gray_color;
+    padding: 1%;
+    margin-right: 2.5px;
+    font-size: 12px;
+}
+.datepicker-wrapper{
+ display: grid;
+ gap: 5%;
+ grid-template-columns: auto auto;
+}
+.from-to{
+text-align: right;
+font: normal normal 600 12px/19px Poppins;
+letter-spacing: 0px;
+color: #1B27AF;
+margin-top: 3px;
 }

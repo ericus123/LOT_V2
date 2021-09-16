@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+@import "https://netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 @import "./styles/sass/variables.scss";
 
 .App {
@@ -14,11 +14,11 @@ background: white !important;
 width: 500px !important;
 }
 .search-box{
-    height: 5vh;
+  background-color: #E8E8E834 !important;
 }
-.side-menu{
-    background: white !important;
-}
+// .side-menu{
+//     background: white !important;
+// }
 .side-menu-item{
     color: black !important;
     display: flex;
@@ -47,14 +47,17 @@ margin-left: 10%;
 .menu-bar{
     display: grid;
     grid-template-columns: 30% auto 20%;
+    height: 15vh !important;
+    padding-top: 3vh !important;
+
 }
 .search-bar{
     width: 80% !important;
     border-radius: 10px !important;
     height: 7vh;
     background: #E8E8E834 0% 0% no-repeat padding-box !important;
-   
 }
+
 
 .blue-txt{
   font-family: $poppins;
@@ -81,6 +84,7 @@ margin-left: 10%;
 
 .dark-mode{
     background-color: black !important;
+    transition: 2s ease-in-out !important;
 }
 
 .ant-menu-item-selected{
@@ -92,7 +96,13 @@ margin-left: 10%;
     span{
         font-size: 24px;
     }
-
+// ::after{
+//     content: "Hide";
+//     color: cyan !important;
+//     font-size: 18px;
+//     padding-bottom: 30px !important;
+//     color: $main_blue !important;
+// }
 }
 
 .logout-btn{
@@ -101,4 +111,16 @@ margin-left: 10%;
 
 .dark-mode-btn{
     cursor: pointer !important;
+}
+.ad-lay{
+    background-color: yellow  !important;
+}
+.dark{
+    background-color: #0A043C !important;
+    color: white !important;
+    transition: .3s ease-in-out !important;
+}
+.side-div{
+    background-color: yellow;
+    margin: 5%;
 }

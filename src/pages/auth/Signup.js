@@ -15,7 +15,6 @@ return (
           <SignupForm/>
         </div>
     </AuthLayout>
-   
         );
 };
 export default Signup;

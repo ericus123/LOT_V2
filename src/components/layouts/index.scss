@@ -1,0 +1,97 @@
+@import "../../styles//sass/variables.scss";
+.profile-name{
+text-align: left !important;
+font-weight: bold;
+font-size: medium;
+color: #080000 !important;
+}
+.profile-role{
+color: #080000 !important;
+opacity: 0.36 !important;
+}
+
+.side-menu-item{
+height:8vh !important;
+}
+.search-icon{
+    color: #CBCBCB !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    padding-left: 10% !important;
+}
+.active-tab{
+    color: white !important;
+}
+.dash-layout{
+//      overflow: hidden;
+//   background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  display: flex; /* relevant part */
+  flex-direction: column; /* relevant part */
+  overflow: hidden; /* relevant part */
+}
+// .dashboard-content{
+//   display: flex !important; /* relevant part */
+//   flex-direction: column !important; /* relevant part */
+//   overflow: hidden !important; /* relevant part */
+//   height: auto;
+// }
+
+//Icons
+
+.home-icon{
+  fill: $main_blue;
+      margin-top: 10px !important;
+}
+.home-icon-active{
+  fill: white;
+      margin-top: 10px !important;
+}
+.calendar-icon{
+  fill: $main_blue !important;
+      margin-top: 10px !important;
+}
+.calendar-icon-active{
+  fill: white !important;
+      margin-top: 10px !important;
+}
+.staffs-icon{
+  fill: $main_blue !important;
+      margin-top: 10px !important;
+}
+.staffs-icon-active{
+  fill: white !important;
+      margin-top: 10px !important;
+}
+.reports-icon{
+  fill: $main_blue !important;
+  margin-left: -2.5px !important;
+  margin-top: 10px !important;
+}
+.reports-icon-active{
+  fill: white !important;
+    margin-top: 10px !important;
+}
+.settings-icon{
+  fill: $main_blue !important;
+      margin-top: 10px !important;
+}
+.settings-icon-active{
+  fill: white !important;
+  margin-top: 10px !important;
+}
+
+.dark-mode-toogle-btn{
+  fill: rgb(59, 50, 50);
+ margin-bottom: -5%;
+ margin-right: 4%;
+ cursor: pointer;
+}
+.dark-mode-toogle-btn-night{
+  fill: white;
+ margin-bottom: -5%;
+ margin-right: 4%;
+ cursor: pointer;
+}

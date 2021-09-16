@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "../../styles//sass/variables.scss";
+.home-cards-right{
+   cursor: pointer !important; 
+}
+
+.dash-right-side{
+
+}
+
+.next-date-loading{
+opacity: 0.7;
+margin-right: -15px !important;
+transition: .2s ease-in-out !important;
+}
+.previous-date-loading{
+   opacity: 0.7;
+   margin-left: -15px !important;
+transition: .2s ease-in-out !important;
+}
+.date-picker{
+   width: 100px;
+   font-size: x-small !important;
+}
+.ant-picker-cell-inner{
+   font-size: x-small;
+}
+.reports-table{
+width: 90% !important;
+margin-top: 5%;
+}
+.date_joined{
+   opacity: 0.46;
+   color: #5760AC;
+}
+.calendar-comp{
+   min-width: 700px !important;
+   height: 400px;
+   font-size: 1.3em;
+   background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 1px 2px 2px #3565D321;
+border: 1px solid #0074890D;
+border-radius: 8px;
+text-align: center;
+letter-spacing: 1px;
+color: #1E202298;
+}
+.react-calendar{
+button:hover{  
+   background-color: #1AB374 !important;
+   border-radius: 30px;
+   color: white;
+}
+}
+
+//table
+
+.ant-table-thead{
+   tr{
+      th{
+           background: #3946BD0F !important;
+      color:#0028AF; 
+      margin-right: 1% !important;
+      }
+   
+   }
+}
+
+.date-picker{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #C5D9DB;
+border-radius: 4px;
+height: 4.5vh;
+font-size: 26px;
+font-weight: bold;
+color: black;
+font-family: $poppins;
+}
