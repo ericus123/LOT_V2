@@ -1,5 +1,6 @@
 import {types} from "./types";
 import users from "../../utils/user.json";
+import http from "../../utils/axios/https";
 
 export const loginRequest = (Email, Password) => async (dispatch) => {
   try {
@@ -18,6 +19,17 @@ if(user){
 }
 },3000);
    
+  } catch (error) {
+   console.log(error);
+}
+};
+export const signupRequest = (payload) => async (dispatch) => {
+  try {
+    dispatch({ type: types.SIGNUP_LOADING, payload:true});
+    const res = await http.post("/auth/signup");
+
+    console.log(payload,res);
+    
   } catch (error) {
    console.log(error);
 }

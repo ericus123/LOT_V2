@@ -1,9 +1,10 @@
 import { Form, Input, Button, Checkbox} from "antd";
 import { useState } from "react";
 import { useHistory } from "react-router";
-import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import "./index.scss";
 import google_logo from "../../assets/images/google.png";
 const SignupForm = () => {
+    const [passwordVisible, setPasswordVisible] = useState(false);
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
@@ -12,6 +13,10 @@ const SignupForm = () => {
 const [checked, setChecked] = useState(false);
   const handleCheckBox = () => {
         setChecked(!checked);
+  };
+
+  const tooglePasswordVisibilty = () => {
+    setPasswordVisible(!passwordVisible);
   };
 
   return (
@@ -61,13 +66,13 @@ const [checked, setChecked] = useState(false);
       >
         <Input
         size="large"
-          type="password"
+          type={passwordVisible ? "text" : "password"}
           placeholder="Password"
           className="login-input"
           visible="true"
-
-        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+          name="password"
         />
+         <i onClick={tooglePasswordVisibilty} className="eye-icon">{passwordVisible ? "hide" :"show"}</i>
       </Form.Item>
       <Form.Item>
     
