@@ -1,6 +1,5 @@
 import {  Button, Col, Modal, Rate, Row } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import { icons } from "../../utils/icons";
 import "./index.scss";
 
 const RateModal = ({rateVisible, showRateModal, hideRateModal, modal_data}) => {
@@ -24,7 +23,7 @@ const RateModal = ({rateVisible, showRateModal, hideRateModal, modal_data}) => {
 
   <Row>
     <div className="rate-icon-wrapper">
-   {modal_data ?  <img className="rate-icon" src={icons[modal_data.icon]}/> : null} 
+   {modal_data ?  <img className="rate-icon" src={modal_data.icon}/> : null} 
  
  <h1 className="rate-modal-company-name txt_dark_blue txt_font_weight_700 txt_center">{modal_data?.name}</h1>
     </div> 
@@ -40,7 +39,7 @@ const RateModal = ({rateVisible, showRateModal, hideRateModal, modal_data}) => {
     <h1 className=" rate-text-title txt_normal">RATE</h1>
     </Col>
     <Col span={14}>
-    <Rate className="rating-stars" allowHalf defaultValue={2.5} />
+    <Rate className="rating-stars" allowHalf defaultValue={modal_data?.rating} />
     </Col>
   </Row>
   <Row>
