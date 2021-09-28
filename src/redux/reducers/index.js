@@ -1,10 +1,10 @@
 import {combineReducers} from "redux";
-import AuthReducer from "./auth";
+import {LoginReducer} from "./auth";
 import StaffsReducer from "./staffs";
 
 
 const allReducers = combineReducers({
-    AuthReducer,
+    LoginReducer,
     StaffsReducer
 });
 

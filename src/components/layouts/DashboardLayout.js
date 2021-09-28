@@ -27,7 +27,7 @@ const DashboardLayout = () =>  {
     mode === "light" ? setMode("dark") : setMode("light");
   };
 
-   let user = useSelector(state => state.AuthReducer.user);
+   let user = useSelector(state => state.LoginReducer.user);
 
     const history = useHistory();
 
@@ -53,11 +53,11 @@ const DashboardLayout = () =>  {
              {!collapsed ?  <Col style={{marginTop:"15px", marginLeft: "5px"}}>
               <Row style={{margin:"10px 0px 5px 0px"}} >
               <Text className="profile-name">
-                Dr Simmons M.
+                {user?.fullName}
               </Text>
               </Row>
               <Row>
-                <Text className="profile-role">Admin</Text>
+                <Text className="profile-role">{user?.role}</Text>
               </Row>
               </Col> : null}
             </Row>

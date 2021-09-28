@@ -1,26 +1,18 @@
 import {types} from "./types";
-import users from "../../utils/user.json";
 import http from "../../utils/axios/https";
 
 export const loginRequest = (Email, Password) => async (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_LOADING, payload:true});
-setTimeout(() => {
- let user= users.filter((user) => user.email === Email && 
-    user.password === Password);
-
-if(user){
-    dispatch({ type: types.LOGIN_REQUEST,payload:user[0]});
-    dispatch({ type: types.LOGIN_LOADING, payload:false});
-    
-}else{
-     dispatch({ type: types.LOGIN_REQUEST_ERROR,payload:"Incorrect credentials"});
-         dispatch({ type: types.LOGIN_LOADING, payload:false});
-}
-},3000);
-   
+      dispatch({ type: types.LOGIN_REQUEST_ERROR, payload: null});
+   const res = await http.post("/auth/login",{
+     email: Email,
+     password: Password
+   });
+ dispatch({ type: types.LOGIN_REQUEST,payload:res.data.payload});
   } catch (error) {
-   console.log(error);
+   dispatch({ type: types.LOGIN_REQUEST_ERROR,payload: error.response.data.message[0]});
+         dispatch({ type: types.LOGIN_LOADING, payload:false});
 }
 };
 export const signupRequest = (payload) => async (dispatch) => {

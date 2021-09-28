@@ -13,7 +13,7 @@ const EmployeesContent = () => {
     const employees = useSelector(state => state.StaffsReducer.employees);
     useEffect(() => {
         dispatch(getEmployeesRequest());
-    },[employees]);
+    },[]);
 return (
     <>
 {employees?.map((key,item) =>   <Row key={key} className="staff-cards-row" >
