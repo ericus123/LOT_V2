@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 
 const AuthLayout = ({children}) => {
 
-   let user = useSelector(state => state.AuthReducer.user);
+   let user = useSelector(state => state.LoginReducer.user);
     const history = useHistory();
 
     useEffect(() => {
