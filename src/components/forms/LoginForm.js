@@ -1,4 +1,4 @@
-import { Form, Input, Button} from "antd";
+import { Form, Input, Button, Alert} from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { loginRequest } from "../../redux/actions/auth";
@@ -8,7 +8,8 @@ import { LoadingOutlined } from "@ant-design/icons";
 
 const LoginForm = () => {
 
-  let isLoading = useSelector(state => state.AuthReducer.isLoading);
+  let isLoading = useSelector(state => state.LoginReducer.isLoading);
+  const error = useSelector(state => state.LoginReducer.error);
   const antIcon = <LoadingOutlined style={{ fontSize: 22 }} spin />;
   const dispatch = useDispatch();
   const onFinish = (values) => {
@@ -66,6 +67,7 @@ dispatch(loginRequest(email,password));
         <Button  htmlType="submit" className="login-btn">
          {isLoading ? <Spin indicator={antIcon} />: "Login"}
         </Button>
+        {error ? <>  <Alert message={error} type="error" className="error-msg" showIcon /> </> : null}
       </Form.Item>
 
       <Form.Item className="text-center blue-txt">

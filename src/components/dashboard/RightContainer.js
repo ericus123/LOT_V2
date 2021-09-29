@@ -6,12 +6,19 @@ import { icons } from "../../utils/icons";
 import "./index.scss";
 import dates_slider from "../../utils/dates_slider.json";
 import { useEffect, useState } from "react";
+import { GenerateRandomIcon } from "../../helpers/RandomIcon";
+import { useSelector } from "react-redux";
 
 const RightContainer = () => {
     
     const [index,setIndex] = useState(0);
     const [animation, setAnimation] = useState("");
     const [slide, setSlide] = useState(1);
+ const {people, aprtment} = icons;
+
+ const all_icons = [people, aprtment];
+const events = useSelector(state => state.EventReducer.events);
+
 
     useEffect(() => {
 
@@ -64,113 +71,26 @@ AutomaticSlide();
                      <Text className={`date-slider-item ${animation}`}>{dates_slider[index].date}</Text>
                      </Col><Col span={2}><RightOutlined onClick={() => Next()} style={{cursor:"pointer"}}/>
                      </Col> </Row>
-        <Row>
-            <Card className="home-cards-right" style={{ width: 300 }}>
+       
+
+          {events.map((item,key) =>  
+          <Row key={key}>
+            <Card  className="home-cards-right" style={{ width: 300 }}>
             <Row>
-                <Col span={4}><img src={icons.people}/></Col>
+                <Col span={4}><img src={GenerateRandomIcon(all_icons)}/></Col>
                 <Col span={18}>
                 <Row style={{marginTop:"-10px"}}>
-                    <Col>General Meeting</Col>
+                    <Col>{item.title}</Col>
                 </Row>
                 <Row>
                     <Col>  12 - 1 pm</Col>
-              
                 </Row>
                 </Col>
                 <Col span={2}><img src={icons.dots}/></Col>
             </Row>
            </Card>
-        </Row>
-         <Row>
-            <Card className="home-cards-right" style={{ width: 300 }}>
-             <Row>
-                <Col span={4}><img src={icons.aprtment}/></Col>
-                <Col span={18}>
-                <Row style={{marginTop:"-10px"}}>
-                    <Col>General Meeting</Col>
-                
-                </Row>
-                <Row>
-                    <Col>12 - 1 pm</Col>
-              
-                </Row>
-                </Col>
-                <Col span={2}><img src={icons.dots}/></Col>
-            </Row>
-           </Card>
-        </Row>
-         <Row>
-            <Card className="home-cards-right" style={{ width: 300 }}>
-            <Row>
-                <Col span={4}><img src={icons.people}/></Col>
-                <Col span={18}>
-                <Row style={{marginTop:"-10px"}}>
-                    <Col>General Meeting</Col>
-                
-                </Row>
-                <Row>
-                    <Col>2 - 3 pm</Col>
-              
-                </Row>
-                </Col>
-                <Col span={2}><img src={icons.dots}/></Col>
-            </Row>
-           </Card>
-        </Row>
-        <Row>
-            <Card className="home-cards-right" style={{ width: 300 }}>
-            <Row>
-                <Col span={4}><img src={icons.aprtment}/></Col>
-                <Col span={18}>
-                <Row style={{marginTop:"-10px"}}>
-                    <Col>General Meeting</Col>
-                
-                </Row>
-                <Row>
-                    <Col>4 - 5 pm</Col>
-              
-                </Row>
-                </Col>
-                <Col span={2}><img src={icons.dots}/></Col>
-            </Row>
-           </Card>
-        </Row>
-        <Row>
-            <Card className="home-cards-right" style={{ width: 300 }}>
-            <Row>
-                <Col span={4}><img src={icons.people}/></Col>
-                <Col span={18}>
-                <Row style={{marginTop:"-10px"}}>
-                    <Col>General Meeting</Col>
-                
-                </Row>
-                <Row>
-                    <Col>5 - 5:30 pm</Col>
-              
-                </Row>
-                </Col>
-                <Col span={2}><img src={icons.dots}/></Col>
-            </Row>
-           </Card>
-        </Row>
-        <Row>
-            <Card className="home-cards-right" style={{ width: 300 }}>
-            <Row>
-                <Col span={4}><img src={icons.aprtment}/></Col>
-                <Col span={18}>
-                <Row style={{marginTop:"-10px"}}>
-                    <Col>General Meeting</Col>
-                
-                </Row>
-                <Row>
-                    <Col>5:30 - 6 pm</Col>
-              
-                </Row>
-                </Col>
-                <Col span={2}><img src={icons.dots}/></Col>
-            </Row>
-           </Card>
-        </Row>
+        </Row> )}
+       
        </Content>
        </Col>
     );
