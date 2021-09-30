@@ -5,9 +5,15 @@ const initialState = {
 isLoading: false,
 user:null,
 error:"",
-token:""
-};
+token:"",
 
+};
+const signupInitialState = {
+isLoading: false,
+signupStatus: null,
+success_msg: null,
+errors: []
+};
 export const LoginReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGIN_LOADING:
@@ -25,7 +31,7 @@ export const LoginReducer = (state = initialState, action) => {
         ...state,
      isLoading: action.payload,
      user: action.payload.user,
-     token: action.payload.accessToken
+     token: action.payload.accessToken,
       };
     case types.LOGOUT_REQUEST:
       return {
@@ -37,4 +43,29 @@ token:""
     default:
       return state;
   }
+};
+
+
+
+export const SignupReducer = (state =  signupInitialState, action) => {
+  switch (action.type) {  
+      case types.SIGNUP_LOADING:
+      return {
+        ...state,
+       isLoading: action.payload,
+      };
+        case types.SIGNUP_REQUEST_SUCCESS:
+      return {
+        ...state,
+       success_msg: action.payload,
+      };
+      case types.SIGNUP_REQUEST_ERROR:
+      return {
+        ...state,
+       errors: action.payload,
+      };
+    default:
+     return state;
+  }
+
 };

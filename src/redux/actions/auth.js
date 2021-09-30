@@ -1,5 +1,6 @@
 import {types} from "./types";
 import {google_auth_request, http} from "../../utils/axios/https";
+import { errorMessage } from "../../components/popups/popupMessages";
 
 export const loginRequest = (Email, Password) => async (dispatch) => {
   try {
@@ -11,22 +12,31 @@ export const loginRequest = (Email, Password) => async (dispatch) => {
    });
    localStorage.setItem("token", res.data.payload.accessToken);
  dispatch({ type: types.LOGIN_REQUEST,payload:res.data.payload});
- dispatch({ type: types.LOGIN_LOADING, payload:false});
+   dispatch({ type: types.LOGIN_LOADING, payload:false});
+ window.location.assign("/dashboard");
   } catch (error) {
-   dispatch({ type: types.LOGIN_REQUEST_ERROR,payload: error.response.data.message[0]});
+   dispatch({ type: types.LOGIN_REQUEST_ERROR,payload: error.response?.data?.message[0]}) || errorMessage("Something went wrong");
+    setTimeout(() => {
+         dispatch({ type: types.LOGIN_REQUEST_ERROR,payload: null});
+    }, 5000);
          dispatch({ type: types.LOGIN_LOADING, payload:false});
 }
+  dispatch({ type: types.LOGIN_LOADING, payload:false});
 };
-export const signupRequest = (payload) => async (dispatch) => {
+export const signupRequest = ({fullName,email,password}) => async (dispatch) => {
   try {
     dispatch({ type: types.SIGNUP_LOADING, payload:true});
-    const res = await http.post("/auth/signup");
-
-    console.log(payload,res);
-    
+    const res = await http.post("/auth/sign-up",{
+      fullName,
+      email,
+      password
+    });
+   dispatch({type: types.SIGNUP_REQUEST_SUCCESS, payload: res.data.payload.message});
+   window.location.assign("/login");
   } catch (error) {
-   console.log(error);
+     dispatch({type: types.SIGNUP_REQUEST_ERROR, payload: error.response.data.message});
 }
+  dispatch({ type: types.SIGNUP_LOADING, payload:false});
 };
 
 export const logoutRequest = () => async (dispatch) => {

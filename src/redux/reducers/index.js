@@ -1,13 +1,15 @@
 import {combineReducers} from "redux";
-import {LoginReducer} from "./auth";
 import EventReducer from "./events";
+import {LoginReducer, SignupReducer} from "./auth";
 import StaffsReducer from "./staffs";
 
 
 const allReducers = combineReducers({
     LoginReducer,
     StaffsReducer,
-    EventReducer
+    EventReducer,
+    SignupReducer
+    
 });
 
 export default allReducers;

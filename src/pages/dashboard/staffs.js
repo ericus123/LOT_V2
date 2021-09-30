@@ -1,11 +1,14 @@
 import { Button, Col,  Row } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import Text from "antd/lib/typography/Text";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import EmployeesContent from "../../components/dashboard/EmployeesContent";
 import EmployersContent from "../../components/dashboard/EmployersContent";
 import RightContainer from "../../components/dashboard/RightContainer";
+import AddEmployeeModel from "../../components/models/AddEmployee";
 import AddEmployerModel from "../../components/models/AddEmployer";
+import { getCompaniesRequest, getEmployeesRequest } from "../../redux/actions/staffs";
 import "./index.scss";
 
 
@@ -21,9 +24,21 @@ const hideModal = () => {
      setVisible(false);
 };
 
+  const companyCreated = useSelector(state => state.StaffsReducer.companyCreated);
+  const employeeCreated = useSelector(state => state.StaffsReducer.employeeCreated);
+const dispatch = useDispatch();
+
+  useEffect(() => {
+   if(companyCreated, employeeCreated){
+     hideModal();
+     dispatch(getCompaniesRequest());
+     dispatch(getEmployeesRequest());
+   }
+  },[companyCreated, employeeCreated]);
 return (
    <Content >
-       <AddEmployerModel visible={visible} showModal={showModal} hideModal={hideModal}/>
+       <AddEmployerModel visible={visible && tab === "employers"} showModal={showModal} hideModal={hideModal}/>
+         <AddEmployeeModel visible={visible && tab === "employees"} showModal={showModal} hideModal={hideModal}/>
        <Row className="dashboard-div" style={{marginTop:"2%"}}>
            <Col span={18}>
        
