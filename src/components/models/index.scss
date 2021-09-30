@@ -1,4 +1,5 @@
 @import "../../styles/sass/variables.scss";
+@import "../../styles/sass/variables.scss";
 
 .model-title{
     font-size: 22px;
@@ -23,6 +24,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.form-error-message{
+    color: $red_color !important;
+    font-size: small;
+    margin-left: 2.5%;
 }
 .rate-icon-wrapper{
     height: 200px !important;

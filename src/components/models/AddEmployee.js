@@ -4,15 +4,14 @@ import { Formik, Form, Field, ErrorMessage,  } from "formik";
 import { icons } from "../../utils/icons";
 import ImgCrop from "antd-img-crop";
 import { Upload } from "antd";
-// import axios from "axios";
 import "./index.scss";
 import { useState } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { postCompaniesRequest } from "../../redux/actions/staffs";
+import { postEmployeeRequest } from "../../redux/actions/staffs";
 
-const AddEmployerModel = ({visible, showModel, hideModal}) => {
+const AddEmployeeModel = ({visible, showModel, hideModal}) => {
 
   const [image_url, setImageUrl] = useState(null);
  const [isUploading, setIsUploading] = useState(false);
@@ -56,7 +55,7 @@ return fetch("https://api.Cloudinary.com/v1_1/amanis/image/upload", options)
 
   };
 
-  const isLoading = useSelector(state => state.StaffsReducer.companiesLoading);
+  const isLoading = useSelector(state => state.StaffsReducer.employeesLoading);
 
 
     return (
@@ -66,7 +65,7 @@ return fetch("https://api.Cloudinary.com/v1_1/amanis/image/upload", options)
         closable={false}
         maskClosable
         footer={null}
-        title={<h2 className="modal-title txt_dark_blue txt_font_weight_700 txt_center">Add Company</h2>}
+        title={<h2 className="modal-title txt_dark_blue txt_font_weight_700 txt_center">Add Employee</h2>}
         visible={visible}
         width={450}
         mask={true}
@@ -91,35 +90,38 @@ return fetch("https://api.Cloudinary.com/v1_1/amanis/image/upload", options)
   <Row   className="add-employer-form-row">
       <Formik
        className="add-employer-form"
-       initialValues={{ company_name: "", size: "" }}
+       initialValues={{ first_name: "",last_name: "", email: "" }}
        validate={values => {
          const errors = {};
-         if (!values.company_name) {
-           errors.company_name = "Company name is required";
-         }else if(!values.size) {
-           errors.company_name = "Company size is required";
+         if (!values.first_name) {
+           errors.first_name = "First name is required";
+         }else if(!values.last_name) {
+           errors.last_name = "Last name is required";
+         }
+         else if(!values.email) {
+           errors.email = "Email is required";
          }
          return errors;
        }}
        onSubmit={(values) => {
-     dispatch(postCompaniesRequest(values,image_url));
+     dispatch(postEmployeeRequest(values,image_url));
        }}
      >
        {({ isSubmitting }) => (
          <Form>
            <Row>
-           <Field className="form-input"  disabled={isSubmitting || isUploading} type="text" name="company_name" placeholder="Name of the company" />
-           <ErrorMessage className="form-error-message"  name="company_name" component="div" />
+           <Field className="form-input"  disabled={isSubmitting || isUploading} type="text" name="first_name" placeholder="JOHN Doe" />
+           <ErrorMessage className="form-error-message"  name="first_name" component="div" />
            </Row>
-           <Row>
-          <Field  disabled={isUploading} className="form-input" name="size" as="select">
-            <option value="">Size of the company</option>
-             <option value="SMALL">Small</option>
-             <option value="MEDIUM">Medium</option>
-             <option value="LARGE">Large</option>
-           </Field>
-           <ErrorMessage name="size" className="form-error-message" component="div" />
+             <Row>
+           <Field className="form-input"  disabled={isSubmitting || isUploading} type="text" name="last_name" placeholder="JOHN Doe" />
+           <ErrorMessage className="form-error-message"  name="last_name" component="div" />
            </Row>
+               <Row>
+           <Field className="form-input"  disabled={isSubmitting || isUploading} type="email" name="email" placeholder="email@example.com" />
+           <ErrorMessage className="form-error-message"  name="email" component="div" />
+           </Row>
+            
            <Row>
             <button className="form-submit-btn image-add-btn bg_dark_blue" type="submit" disabled={isSubmitting}>
                 {isUploading || isLoading ? <Spin indicator={antIcon} />: "ADD"}
@@ -135,4 +137,4 @@ return fetch("https://api.Cloudinary.com/v1_1/amanis/image/upload", options)
     );
 };
 
-export default AddEmployerModel;
+export default AddEmployeeModel;
