@@ -19,3 +19,13 @@ export const httpv2 = axios.create({
   },
 });
 
+
+
+export const google_auth_request = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL,
+  headers: {
+    "Authorization": `Bearer ${token}`,
+    "Content-Type": "application/json",
+  },
+});
+

@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import "./index.scss";
 import google_logo from "../../assets/images/google.png";
+import { auth, provider } from "../../helpers/Firebase";
+import { useDispatch } from "react-redux";
+import { signupWithGoogleRequest } from "../../redux/actions/auth";
 const SignupForm = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
   const onFinish = (values) => {
@@ -18,6 +21,16 @@ const [checked, setChecked] = useState(false);
   const tooglePasswordVisibilty = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+
+  const SignIn = () => {
+    auth.signInWithPopup(provider).then((payload) =>{
+      console.log(payload);
+      localStorage.setItem("token",payload.credential.idToken);
+      dispatch(signupWithGoogleRequest(payload.credential));}).catch((error) => console.log(error));
+  };
+
+  const dispatch = useDispatch();
 
   return (
     <Form
@@ -68,7 +81,7 @@ const [checked, setChecked] = useState(false);
         size="large"
           type={passwordVisible ? "text" : "password"}
           placeholder="Password"
-          className="login-input"
+          className="login-input" 
           visible="true"
           name="password"
         />
@@ -95,7 +108,7 @@ const [checked, setChecked] = useState(false);
          <h3 className="or-text">or</h3>
 
          <Form.Item className="google-signup">
-             <button  className="google-signup-btn">
+             <button  className="google-signup-btn" onClick={SignIn}>
          <img src={google_logo}/>Signup with google
         </button>
          </Form.Item>
