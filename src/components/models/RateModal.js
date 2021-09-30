@@ -2,7 +2,7 @@ import {  Button, Col, Modal, Rate, Row } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import "./index.scss";
 
-const RateModal = ({rateVisible, showRateModal, hideRateModal, modal_data}) => {
+const RateModal = ({rateVisible, showRateModal, hideRateModal, rate, modal_data}) => {
 
     return (
       <>
@@ -39,7 +39,7 @@ const RateModal = ({rateVisible, showRateModal, hideRateModal, modal_data}) => {
     <h1 className=" rate-text-title txt_normal">RATE</h1>
     </Col>
     <Col span={14}>
-    <Rate className="rating-stars" allowHalf defaultValue={modal_data?.rating} />
+    <Rate className="rating-stars" allowHalf defaultValue={rate} />
     </Col>
   </Row>
   <Row>

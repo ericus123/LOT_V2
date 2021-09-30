@@ -32,6 +32,15 @@ border-radius: 8px !important;
     border: none !important;
     margin-bottom: 5%;
 }
+.home-cards-right-big{
+    height: 12vh !important;
+  background: #FFFFFF 0% 0% no-repeat padding-box !important;
+box-shadow: 0px 2px 2px #3565D329 !important;
+border: 1px solid #0074890D !important;
+border-radius: 8px !important;
+    border: none !important;
+    margin-bottom: 5%;
+}
 .home-card-right-title{
     color: white !important;
     font-size: 20px !important;
@@ -166,6 +175,7 @@ overflow-x: hidden;
 overflow-y: auto;
 height: 550px;
 }
+
 .staff-add-col{
     margin-left: auto !important;
     margin-right: 5%;
@@ -297,4 +307,8 @@ font: normal normal 600 12px/19px Poppins;
 letter-spacing: 0px;
 color: #1B27AF;
 margin-top: 3px;
+}
+
+.june-events-time{
+    font-size: 10px !important;
 }

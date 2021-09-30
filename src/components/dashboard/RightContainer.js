@@ -8,6 +8,7 @@ import dates_slider from "../../utils/dates_slider.json";
 import { useEffect, useState } from "react";
 import { GenerateRandomIcon } from "../../helpers/RandomIcon";
 import { useSelector } from "react-redux";
+import Moment from "react-moment";
 
 const RightContainer = () => {
     
@@ -18,7 +19,6 @@ const RightContainer = () => {
 
  const all_icons = [people, aprtment];
 const events = useSelector(state => state.EventReducer.events);
-
 
     useEffect(() => {
 
@@ -73,7 +73,7 @@ AutomaticSlide();
                      </Col> </Row>
        
 
-          {events.map((item,key) =>  
+          {events?.map((item,key) =>  
           <Row key={key}>
             <Card  className="home-cards-right" style={{ width: 300 }}>
             <Row>
@@ -83,7 +83,7 @@ AutomaticSlide();
                     <Col>{item.title}</Col>
                 </Row>
                 <Row>
-                    <Col>  12 - 1 pm</Col>
+                    <Col> <Moment format={"HH:MM A"} date={item.start}/> - <Moment format={"HH:MM A"} date={item.end}/></Col>
                 </Row>
                 </Col>
                 <Col span={2}><img src={icons.dots}/></Col>
