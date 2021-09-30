@@ -1,5 +1,5 @@
 import {types} from "./types";
-import {http} from "../../utils/axios/https";
+import {google_auth_request, http} from "../../utils/axios/https";
 
 export const loginRequest = (Email, Password) => async (dispatch) => {
   try {
@@ -36,4 +36,18 @@ export const logoutRequest = () => async (dispatch) => {
   } catch (error) {
    console.log(error);
 }
+};
+
+export const signupWithGoogleRequest = () => async (dispatch) => {
+  try {
+    dispatch({ type: types.SIGNUP_LOADING, payload:true});
+      dispatch({ type: types.SIGNUP_REQUEST_ERROR, payload: false});
+   const res = await google_auth_request.post("/auth/sign-up/third-party");
+console.log(res);
+ dispatch({ type: types.SIGNUP_REQUEST,payload:true});
+  } catch (error) {
+         dispatch({ type: types.SIGNUP_LOADING, payload:false});
+}
+ dispatch({ type: types.SIGNUP_REQUEST,payload:false});
+  dispatch({ type: types.SIGNUP_LOADING, payload:false});
 };
