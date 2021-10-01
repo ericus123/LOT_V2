@@ -27,6 +27,13 @@ export const LoginReducer = (state = initialState, action) => {
      user: action.payload.user,
      token: action.payload.accessToken
       };
+    case types.LOGOUT_REQUEST:
+      return {
+       isLoading: false,
+user:null,
+error:"",
+token:""
+      };
     default:
       return state;
   }

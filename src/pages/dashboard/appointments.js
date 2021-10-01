@@ -5,9 +5,21 @@ import "./index.scss";
 import RightContainer from "../../components/dashboard/RightContainer";
 import { icons } from "../../utils/icons";
 import CalendarComponent from "../../components/dashboard/Calendar";
+
 import "./index.scss";
+import { useSelector } from "react-redux";
+import Moment from "react-moment";
+import { GenerateRandomIcon } from "../../helpers/RandomIcon";
+
 
 const AppointmentsPage = () => {
+
+    const events = useSelector(state => state.EventReducer.events);
+     const {people, aprtment} = icons;
+
+ const all_icons = [people, aprtment];
+
+
     return (
          <Content>
           
@@ -22,59 +34,22 @@ const AppointmentsPage = () => {
             </Row>
             <Row><Title className="june-main-events">June main Events</Title></Row>
             <Row gutter={[10,10]}>
-            <Col>
-            <Card className="home-cards-right" style={{ width: 225 }}>
+          {events.slice(0,3).map((value,key) =>   <Col key={key}>
+            <Card className="home-cards-right-big" style={{ width: 225 }}>
             <Row gutter={[5,5]}>
-                <Col span={4}><img src={icons.people}/></Col>
+                <Col span={4}><img src={GenerateRandomIcon(all_icons)}/></Col>
                 <Col span={18}>
                 <Row style={{marginTop:"-10px"}}>
-                    <Col className="event-title">General Meeting</Col>
+                    <Col className="event-title">{value.title}</Col>
                 </Row>
                 <Row>
-                    <Col className="event-time">  12 - 1 pm</Col>
-              
+                    <Col className="event-time"> <Moment className="june-events-time" format={"HH:MM A"} date={value.start}/> - <Moment  className="june-events-time"  format={"HH:MM A"} date={value.end}/></Col>  
                 </Row>
                 </Col>
                 <Col span={2}><img src={icons.dots}/></Col>
             </Row>
            </Card>
-            </Col>
-            <Col>
-            <Card className="home-cards-right" style={{ width: 225 }}>
-            <Row>
-                <Col span={4}><img src={icons.people}/></Col>
-                <Col span={18}>
-                <Row style={{marginTop:"-10px"}}>
-                    <Col className="event-title">General Meeting</Col>
-                
-                </Row>
-                <Row>
-                    <Col className="event-time">  12 - 1 pm</Col>
-              
-                </Row>
-                </Col>
-                <Col span={2}><img src={icons.dots}/></Col>
-            </Row>
-           </Card>
-           </Col>
-            <Col>
-            <Card className="home-cards-right" style={{ width: 225 }}>
-            <Row>
-                <Col span={4}><img src={icons.people}/></Col>
-                <Col span={18}>
-                <Row style={{marginTop:"-10px"}}>
-                    <Col className="event-title">General Meeting</Col>
-                
-                </Row>
-                <Row>
-                    <Col  className="event-time">  12 - 1 pm</Col>
-              
-                </Row>
-                </Col>
-                <Col span={2}><img src={icons.dots}/></Col>
-            </Row>
-           </Card>
-            </Col>
+            </Col>)}
         </Row>
             </Col>
             <RightContainer/>

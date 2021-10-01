@@ -3,14 +3,16 @@ import { Col, Input, Layout, Menu, Row } from "antd";
 import Text from "antd/lib/typography/Text";
 
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import AppointmentsPage from "../../pages/dashboard/appointments";
 import HomePage from "../../pages/dashboard/home";
 import ReportsPage from "../../pages/dashboard/reports";
 import SettingsPage from "../../pages/dashboard/settings";
 import StaffsPage from "../../pages/dashboard/staffs";
+import { logoutRequest } from "../../redux/actions/auth";
 import { icons } from "../../utils/icons";
+import {getEventsRequest} from "../../redux/actions/events";
 import "./index.scss";
 
 
@@ -18,9 +20,12 @@ const { Header, Content, Sider } = Layout;
 
 const DashboardLayout = () =>  {
 
-
+ useEffect(() => {
+     dispatch(getEventsRequest());
+ },[]);
   const [mode, setMode] = useState("light");
   const [tab, setTab] = useState("home");
+  const dispatch = useDispatch();
 
 
   const changeTheme = () => {
@@ -90,7 +95,7 @@ const DashboardLayout = () =>  {
             </div>
             <div>
             <svg xmlns="http://www.w3.org/2000/svg"   className={`${mode === "light" ? "dark-mode-toogle-btn" : "dark-mode-toogle-btn-night" }`}  onClick={() => changeTheme() } width="24.75" height="27.004" viewBox="0 0 24.75 27.004"><path d="M28.223,24.9c-.2.007-.408.014-.612.014A12.4,12.4,0,0,1,18.7,21.164,12.809,12.809,0,0,1,15,12.108a12.971,12.971,0,0,1,1.23-5.534,18.327,18.327,0,0,1,.956-1.645.277.277,0,0,0-.274-.429A13.537,13.537,0,0,0,5.625,17.93,13.469,13.469,0,0,0,18.991,31.5,13.255,13.255,0,0,0,29.18,26.712a12.843,12.843,0,0,0,1.153-1.533.284.284,0,0,0-.288-.429A12.007,12.007,0,0,1,28.223,24.9Z" transform="translate(-5.625 -4.496)"/></svg>
-             <img className="logout-btn" onClick={() => window.location.reload()} src={icons.logout}/>
+             <img className="logout-btn" onClick={() => dispatch(logoutRequest())} src={icons.logout}/>
             </div>
           </Header>
           <Content className="dashboard-content" style={{ margin: "2px 16px" }}>

@@ -5,7 +5,10 @@ const initialState = {
 companies: [],
 companiesLoading: false,
 employees: [],
-employeesLoading: false
+employeesLoading: false,
+ratingLoading: false,
+ratingSuccesful:null
+
 };
 
 const StaffsReducer = (state = initialState, action) => {
@@ -20,12 +23,22 @@ const StaffsReducer = (state = initialState, action) => {
         ...state,
       companies: action.payload
       };
-    case types.GET_EMPLOYERS_LOADING:
+       case types.RATE_COMPANIES_LOADING:
+      return {
+        ...state,
+     rateLoading: action.payload,
+      };
+    case types.RATE_COMPANIES_REQUEST:
+      return {
+        ...state,
+      ratingSuccesful: action.payload
+      };
+    case types.GET_EMPLOYEES_LOADING:
       return {
         ...state,
      employeesLoading: action.payload,
       };
-    case types.GET_EMPLOYERS_REQUEST:
+    case types.GET_EMPLOYEES_REQUEST:
       return {
         ...state,
       employees: action.payload

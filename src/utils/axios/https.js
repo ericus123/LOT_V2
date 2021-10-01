@@ -1,16 +1,21 @@
 import axios from "axios";
-import {store} from "../../redux/store";
-const baseURL = process.env.REACT_APP_BASE_URL;
+let token = localStorage.token;
 
- const state = store.getState();
- const authToken = state.LoginReducer.token;
 
-const http = axios.create({
-  baseURL,
+export const http = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
-     Authorization: `Bearer ${authToken}`,
+    "Authorization": `Bearer ${token}`,
     "Content-Type": "application/json",
   },
 });
 
-export default http;
+
+export const httpv2 = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL_V2,
+  headers: {
+    "Authorization": `Bearer ${token}`,
+    "Content-Type": "application/json",
+  },
+});
+
